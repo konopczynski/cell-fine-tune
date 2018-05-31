@@ -13,8 +13,6 @@ from config import InferenceConfig
 ROOT_DIR = os.getcwd()
 
 # SET THIS UP:
-
-
 MODEL_PATH = "./weights/ch1_ch2_new100_150epochs_coco_berkeley.h5"
 IMAGE_DIR  = "./inputfiles/"
 SAVE_DIR   = "./outfiles/"
@@ -41,13 +39,12 @@ def main():
         results = model.detect([original_image], verbose=0)
         r = results[0]
         RM =  r['masks']
-        OI = original_image[:,:,0].copy()
         NI = original_image[:,:,0].copy()
         MI = np.zeros(shape=np.shape(NI))
-        NU = np.shape(RM)[2]
-        for i in range(NU):
-            NI[RM[:,:,i]==1]=255
-            MI[RM[:,:,i]==1]=i
+        
+        for i in range(np.shape(RM)[2]):
+            NI[RM[:,:,i]==1] = 255
+            MI[RM[:,:,i]==1] = i
         scipy.misc.imsave(SAVE_DIR + fn, MI)
     print('done')
 
