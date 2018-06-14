@@ -1,7 +1,7 @@
 # cell-fine-tune
 ## requirements
 python==3.6 <br>
-keras>=2.1.6<br>
+keras>=2.2.0<br>
 scikit-image>=0.13.1 <br>
 ## instruction
 ### 0.
