@@ -1,0 +1,7 @@
+tensorflow
+keras
+torch
+torchvision
+tqdm
+scikit-image
+nibabel

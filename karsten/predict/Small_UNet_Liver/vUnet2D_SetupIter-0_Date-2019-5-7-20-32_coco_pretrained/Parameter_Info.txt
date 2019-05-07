@@ -1,0 +1,80 @@
+base_setup
+	/src/git/cell-fine-tune/karsten/predict/Training_Setup_Files/Baseline_Parameters.txt
+
+search_setup
+	/src/git/cell-fine-tune/karsten/predict/Training_Setup_Files/Small_UNet_Liver.txt
+
+no_date
+	False
+
+Network
+	structure: [3, 3, 3, 3, 3]
+	filter_start: 20
+	channels: 1
+	init_type: he_n
+	use_batchnorm: True
+	dropout: 0
+	use_pypool: False
+	use_auxiliary_inputs: True
+	use_conv_pool: True
+	backbone: base
+	block_type: base
+	up_conv_type: [4, 2, 1]
+	se_reduction: 0
+	dilation: [1, 1, 1, 1, 1]
+	dilation_up: [1, 1, 1, 1, 1]
+	structure_up: [3, 3, 3, 3, 3]
+	filter_start_up: 20
+	filter_sizes: [20, 40, 80, 160, 320, 640]
+	filter_sizes_up: [20, 40, 80, 160, 320, 640]
+	Network_name: vUnet2D
+
+Training
+	mode: 2D
+	network_type: unet
+	data: liver
+	n_epochs: 400
+	lr: 2e-05
+	l2_reg: 1e-05
+	gpu: 0
+	num_workers: 4
+	batch_size: 8
+	step_size: [100, 200, 300]
+	gamma: 0.5
+	crop_size: [256, 256]
+	perc_data: 0.1
+	train_val_split: 0.9
+	seed: 1
+	loss_func: binary_combined
+	class_weights: [1, 1]
+	num_classes: 2
+	augment: ['rot', 'zoom', 'hflip', 'vflip']
+	verbose_idx: 50
+	initialization: 
+	pos_sample_chance: 2
+	no_standardize: False
+	epsilon: 1e-06
+	wmap_weight: 3
+	weight_score: [1, 1]
+	focal_gamma: 1.5
+	Training_ROI_Vicinity: 4
+	savename: coco_pretrained
+	Network_name: cell_2D
+	use_weightmaps: True
+	require_one_hot: False
+	num_out_classes: 1
+	Save_Dir_Name: vUnet2D_SetupIter-0_Date-2019-5-7-20-32_coco_pretrained
+
+Paths
+	Training_Path: placeholder
+	Save_Path: Small_UNet_Liver/vUnet2D_SetupIter-0_Date-2019-5-7-20-32_coco_pretrained
+
+iter_idx
+	0
+
+device
+	cuda
+
+fset
+	<network_zoo.LayerSet object at 0x7f09aca855c0>
+
