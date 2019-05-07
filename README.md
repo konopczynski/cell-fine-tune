@@ -5,13 +5,15 @@ keras>=2.2.0<br>
 scikit-image>=0.13.1 <br>
 ## instruction
 ### 0.
-download weights in h5 format and put them in folder ./weights<br>
-the current best weights are: ch1_ch2_new100_150epochs_coco_berkeley.h5
-https://drive.google.com/drive/folders/1_qL4oyVcPaOiHFTCogo3kXgs5g9FsLuG
+install the requirements:
+```
+pip install -r requirements.txt
+```
 ### 1.
-inside infer.py set:<br>
-MODEL_PATH # path to the file with model weights<br>
-IMAGE_DIR # path to the directory containing images to process<br>
-SAVE_DIR # path to the directory where masks will be saved
+download weights from the folder final_weights and put them in folder ./weights<br>
+https://drive.google.com/drive/folders/1Ngp34zO8bx39z0ZSqwtCpZoCjRCEpc24?usp=sharing
 ### 2.
-run python infer.py
+Run mask prediction:
+```
+python infer.py --model <hybrid/pure>
+```
