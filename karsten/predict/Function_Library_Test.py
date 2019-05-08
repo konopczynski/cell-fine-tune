@@ -44,4 +44,4 @@ def validator(network, data_loader, opt, folder_name='predictions'):
         validation_slice = file_dict["image"].type(torch.FloatTensor).to(opt.device)
         network_output   = network(validation_slice)[0][0].cpu().detach().numpy()[0]
         network_output   = unpad_img(network_output, file_dict["shape"][0].item(), file_dict["shape"][1].item())
-        plt.imsave(os.path.join('..', folder_name, file_dict['name'][0][:-3]+'png'), network_output)
+        plt.imsave(os.path.join(folder_name, file_dict['name'][0][:-3]+'png'), network_output)
