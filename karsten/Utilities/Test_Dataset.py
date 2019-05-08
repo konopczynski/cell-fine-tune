@@ -1,8 +1,3 @@
-import pandas as pd
-import csv
-import os
-
-
 import os, sys, time, csv, itertools, copy, numpy as np, pandas as pd, itertools as it, torch, copy
 import scipy.ndimage.measurements as snm, skimage.transform as st
 from tqdm import tqdm, trange
@@ -14,7 +9,6 @@ import random
 import PIL
 import matplotlib.pyplot as plt
 
-test_dir = '/src/mannheim/cell_april/T43/imgs'
 
 def create_csv(root_dir, save_path):
     names = os.listdir(root_dir)
@@ -22,7 +16,7 @@ def create_csv(root_dir, save_path):
     df.to_csv(save_path)
     return save_path
 
-def Generate_Datasets(opt):
+def Generate_Datasets(opt, test_dir):
     csv_path = create_csv(test_dir, './test_ids.csv')
     test_dataset = CellDataset(csv_path, test_dir, opt, aug=False)
     num_imgs = test_dataset.__len__()

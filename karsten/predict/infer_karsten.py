@@ -27,7 +27,7 @@ import model as modellib
 SAVE_DIR = os.path.join(ROOT_DIR, '../karsten_outfiles')
 
 
-def infer(opt):
+def infer(opt, image_dir):
     
     """======================================================================================="""
     ### GPU SETUP
@@ -55,7 +55,7 @@ def infer(opt):
 
     """======================================================================================="""
     imp.reload(Data)
-    test_dataset = Cdata.Generate_Datasets(opt)#Data.Generate_Required_Datasets(opt)
+    test_dataset = Cdata.Generate_Datasets(opt, image_dir)#Data.Generate_Required_Datasets(opt)
     test_data_loader = torch.utils.data.DataLoader(test_dataset, num_workers=0, batch_size=1, pin_memory=False, shuffle=False)
     ###### Validation #########
     flib.validator(network, test_data_loader, opt, folder_name=SAVE_DIR)
@@ -65,7 +65,7 @@ class Namespace:
         self.__dict__.update(kwargs)
     
 
-def run_infer():
+def run_infer(image_dir):
     opt = Namespace(base_setup = 'Baseline_Parameters.txt', search_setup = 'Small_UNet_Liver.txt')
 
     opt.base_setup   = ROOT_DIR+'/Training_Setup_Files/' + opt.base_setup
@@ -73,5 +73,5 @@ def run_infer():
 
     training_setups = gu.extract_setup_info(opt)
     for training_setup in tqdm(training_setups, desc='Setup Iteration... ', position=0):
-        infer(training_setup)
+        infer(training_setup, image_dir)
     #os.chdir(ROOT_DIR)

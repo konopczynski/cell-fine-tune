@@ -1,7 +1,6 @@
 import os
 from tqdm import tqdm
 import sys
-import cv2
 import time
 import argparse
 import numpy as np
@@ -38,7 +37,7 @@ def main(opt):
         model_path = 'weights/MaskRCNN_hybrid.h5'
         
         os.makedirs(feature_dir, exist_ok=True)
-        unet.run_infer()
+        unet.run_infer(image_dir)
 
         model = modellib.MaskRCNN(mode="inference", 
                                   config=inference_config,
@@ -58,7 +57,6 @@ def main(opt):
             r = results[0]
             RM =  r['masks']
             MI = np.zeros(shape=original_image[:, :, 0].shape)
-            print(np.shape(RM))
             for i in range(np.shape(RM)[2]):
                 MI[RM[:,:,i]==1] = i
             scipy.misc.imsave(os.path.join(save_dir, fn[:-3]+'png'), MI)
