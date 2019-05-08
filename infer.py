@@ -35,7 +35,7 @@ def main(opt):
     
     if opt.model == 'hybrid':
         feature_dir = 'karsten/karsten_outfiles'
-        model_path = 'weights/model.h5'
+        model_path = 'weights/MaskRCNN_hybrid.h5'
         
         os.makedirs(feature_dir, exist_ok=True)
         unet.run_infer()
