@@ -17,3 +17,6 @@ python infer.py (--model <hybrid/pure>) (--image_folder <>) (--save_folder <>)
 ```--model hybrid``` runs our Hybrid model
 
 ```--model pure``` runs MaskRCNN
+### Based on
+https://github.com/Confusezius/unet-lits-2d-pipeline
+https://github.com/matterport/Mask_RCNN
