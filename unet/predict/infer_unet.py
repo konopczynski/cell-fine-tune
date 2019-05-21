@@ -24,7 +24,7 @@ import Test_Dataset as Cdata
 import Function_Library_Test as flib
 import model as modellib
 
-SAVE_DIR = os.path.join(ROOT_DIR, '../karsten_outfiles')
+SAVE_DIR = os.path.join(ROOT_DIR, '../unet_outfiles')
 
 
 def infer(opt, image_dir):
@@ -49,7 +49,7 @@ def infer(opt, image_dir):
     network.n_params = nu.gimme_params(network)
     opt.Network['Network_name'] = network.name
     _ = network.to(opt.device)
-    check_path = os.path.join(ROOT_DIR, '../../weights/best_karsten_model.pth.tar')  
+    check_path = os.path.join(ROOT_DIR, '../../weights/best_unet_model.pth.tar')  
     checkpoint = torch.load(check_path)
     network.load_state_dict(checkpoint['network_state_dict'])
 

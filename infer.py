@@ -17,8 +17,7 @@ import model as modellib
 from config import InferenceConfig
 
 from skimage import img_as_uint
-#sys.path.insert(0, join(os.getcwd(), 'karsten'))
-import karsten.predict.infer_karsten as unet
+import unet.predict.infer_unet as unet
 
 def rgb2gray(rgb):
     r, g, b = rgb[:,:,0], rgb[:,:,1], rgb[:,:,2]
@@ -33,7 +32,7 @@ def main(opt):
         os.makedirs(save_dir)
     
     if opt.model == 'hybrid':
-        feature_dir = 'karsten/karsten_outfiles'
+        feature_dir = 'unet/unet_outfiles'
         model_path = 'weights/MaskRCNN_hybrid.h5'
         
         os.makedirs(feature_dir, exist_ok=True)
