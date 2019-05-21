@@ -1,6 +1,6 @@
 tensorflow
 keras
-torch
+torch==1.0.1
 torchvision
 tqdm
 scikit-image
