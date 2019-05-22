@@ -21,8 +21,8 @@ python infer.py (--model <hybrid/pure>) (--image_folder <>) (--save_folder <>)
 ### Evaluation
 Basic statistics can be generated using the notebook: evaluation/evaluate_prediction.ipynb
 
-#### Issues
-In case of problems with libomp on Mac (https://github.com/pytorch/pytorch/issues/20030), try:
+### Issues
+In case of problems with libomp on Mac (https://github.com/pytorch/pytorch/issues/20030), add:
 ```
 brew install libomp
 ```
