@@ -17,6 +17,15 @@ python infer.py (--model <hybrid/pure>) (--image_folder <>) (--save_folder <>)
 ```--model hybrid``` runs our Hybrid model
 
 ```--model pure``` runs MaskRCNN
+
+### Evaluation
+Basic statistics can be generated using the notebook: evaluation/evaluate_prediction.ipynb
+
+## Issues
+In case of problems with libomp on Mac (https://github.com/pytorch/pytorch/issues/20030), try:
+```
+brew install libomp
+```
 ### Based on
 https://github.com/Confusezius/unet-lits-2d-pipeline <br>
 https://github.com/matterport/Mask_RCNN
