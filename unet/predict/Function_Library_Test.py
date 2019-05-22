@@ -11,7 +11,7 @@ sys.path.insert(0, os.getcwd()+'/../Utilities')
 import General_Utilities as gu, Network_Utilities as nu
 from tqdm import tqdm, trange
 import matplotlib.pyplot as plt
-
+import shutil
 
 
 def unpad_img(img, orig_x, orig_y):
@@ -35,7 +35,10 @@ def unpad_img(img, orig_x, orig_y):
 """==============================================================="""
 ### VALIDATE ANY 2D SEGMENTATION NETWORK FOR LIVER/LESION SEGMENTATION
 def validator(network, data_loader, opt, folder_name='predictions'):
-    os.makedirs(folder_name, exist_ok=True)
+    
+    if os.path.exists(folder_name):
+        shutil.rmtree(folder_name)
+    os.makedirs(folder_name)
     _ = network.eval()
 
     validation_data_iter = tqdm(data_loader, position=2)

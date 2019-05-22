@@ -50,7 +50,7 @@ def infer(opt, image_dir):
     opt.Network['Network_name'] = network.name
     _ = network.to(opt.device)
     check_path = os.path.join(ROOT_DIR, '../../weights/best_unet_model.pth.tar')  
-    checkpoint = torch.load(check_path)
+    checkpoint = torch.load(check_path, map_location='cpu')
     network.load_state_dict(checkpoint['network_state_dict'])
 
     """======================================================================================="""
