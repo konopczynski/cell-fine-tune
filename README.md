@@ -1,7 +1,7 @@
 # cell-fine-tune
 
 ## instruction
-### Installaion
+### Installation
 install the requirements:
 ```
 pip install -r requirements.txt
@@ -21,7 +21,7 @@ python infer.py (--model <hybrid/pure>) (--image_folder <>) (--save_folder <>)
 ### Evaluation
 Basic statistics can be generated using the notebook: evaluation/evaluate_prediction.ipynb
 
-## Issues
+#### Issues
 In case of problems with libomp on Mac (https://github.com/pytorch/pytorch/issues/20030), try:
 ```
 brew install libomp
