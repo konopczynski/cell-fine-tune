@@ -1,8 +1,9 @@
-tensorflow
-keras
-torch
-torchvision
-tqdm
-scikit-image
-nibabel
-opencv-python
+tensorflow==1.13.1
+keras==2.2.4
+torch==1.0.1
+torchvision==0.2.2.post3
+tqdm==4.32.1
+scikit-image==0.15.0
+nibabel==2.4.0
+pandas==0.24.2
+opencv-python==4.1.0.25

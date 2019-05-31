@@ -1,4 +1,5 @@
 import os
+
 from tqdm import tqdm
 import sys
 import time
@@ -18,6 +19,8 @@ from config import InferenceConfig
 
 from skimage import img_as_uint
 import unet.predict.infer_unet as unet
+
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 def rgb2gray(rgb):
     r, g, b = rgb[:,:,0], rgb[:,:,1], rgb[:,:,2]
